@@ -1,10 +1,13 @@
 {
   "name": "knote",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "docker:build": "docker build -t knote .",
+    "docker:run:mongo": "docker run --name=mongo --rm --network=knote mongo",
+    "docker:run:knote": "docker run --name=knote --rm --network=knote -p 3000:3000 -e MONGO_URL=mongodb://mongo:27017/dev knote",
     "mongodb": "mongod"
   },
   "author": "",
